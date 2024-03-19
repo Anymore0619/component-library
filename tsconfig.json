@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "skipLibCheck": true,
+    "target": "esnext",
+    "module": "esnext",
+    "baseUrl": ".",
+    "sourceMap": false,
+    "moduleResolution": "node",
+    "allowJs": false,
+    "strict": true,
+    "noUnusedLocals": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "removeComments": false,
+    "preserveSymlinks": true,
+    "noImplicitAny": false,
+    "rootDir": ".",
+    "paths": {
+      "component-library-hooks/*": ["packages/hooks/*"],
+      "component-library-utils/*": ["packages/utils/*"],
+      "@popperjs/core": ["node_modules/@popperjs/core/"],
+      "async-validator": ["node_modules/async-validator/"],
+      "dayjs": ["node_modules/dayjs/"]
+    },
+    "types": []
+  },
+  "include": ["internal", "packages", "play", "typings"],
+  "exclude": ["**/cjs", "**/es", "**/node_modules", "**/storybook-static"]
+}

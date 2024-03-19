@@ -1,0 +1,10 @@
+{
+  "name": "component-library-utils",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "index.ts",
+  "peerDependencies": {
+    "lodash-es": "^4.0.0",
+    "vue": "^3.3.0"
+  }
+}

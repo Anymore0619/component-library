@@ -1,0 +1,15 @@
+{
+  "name": "component-library-build",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "build": "vite build --config ./config/build.config.ts"
+  },
+  "peerDependencies": {
+    "vite": "^4.0.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "4.5.0",
+    "vite-plugin-dts": "3.6.4"
+  }
+}

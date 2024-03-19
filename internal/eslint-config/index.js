@@ -1,0 +1,137 @@
+const { defineConfig } = require('eslint-define-config')
+
+module.exports = defineConfig({
+  env: {
+    es6: true,
+    browser: true,
+    node: true,
+  },
+  plugins: ['@typescript-eslint', 'prettier'],
+  extends: [
+    'eslint:recommended',
+    'plugin:import/recommended',
+    'plugin:jsonc/recommended-with-json',
+    'plugin:vue/vue3-recommended',
+    'plugin:@typescript-eslint/recommended',
+    'prettier',
+  ],
+  settings: {
+    'import/resolver': {
+      node: { extensions: ['.js', '.mjs', '.ts', '.d.ts', '.tsx'] },
+    },
+  },
+  overrides: [
+    {
+      files: ['*.json'],
+      parser: 'jsonc-eslint-parser',
+    },
+    {
+      files: ['package.json'],
+      parser: 'jsonc-eslint-parser',
+      rules: {
+        'jsonc/sort-keys': [
+          'error',
+          {
+            pathPattern: '^$',
+            order: [
+              'name',
+              'version',
+              'private',
+              'packageManager',
+              'description',
+              'type',
+              'keywords',
+              'homepage',
+              'bugs',
+              'license',
+              'author',
+              'contributors',
+              'funding',
+              'files',
+              'main',
+              'module',
+              'exports',
+              'unpkg',
+              'jsdelivr',
+              'browser',
+              'bin',
+              'man',
+              'directories',
+              'repository',
+              'publishConfig',
+              'scripts',
+              'peerDependencies',
+              'peerDependenciesMeta',
+              'optionalDependencies',
+              'dependencies',
+              'devDependencies',
+              'engines',
+              'config',
+              'overrides',
+              'pnpm',
+              'husky',
+              'lint-staged',
+              'eslintConfig',
+            ],
+          },
+          {
+            pathPattern: '^(?:dev|peer|optional|bundled)?[Dd]ependencies$',
+            order: { type: 'asc' },
+          },
+        ],
+      },
+    },
+    {
+      files: ['*.d.ts'],
+      rules: {
+        'import/no-duplicates': 'off',
+      },
+    },
+    {
+      files: ['*.js'],
+      rules: {
+        '@typescript-eslint/no-var-requires': 'off',
+      },
+    },
+    {
+      files: ['*.ts'],
+      rules: {
+        'no-control-regex': 'off',
+        'no-undef': 'off',
+        'import/no-unresolved': 'off',
+        '@typescript-eslint/no-empty-function': 'off',
+        '@typescript-eslint/no-empty-interface': 'off',
+        '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/no-non-null-assertion': 'off',
+        '@typescript-eslint/no-non-null-asserted-optional-chain': 'off',
+      },
+    },
+    {
+      files: ['*.vue'],
+      parser: 'vue-eslint-parser',
+      parserOptions: {
+        parser: '@typescript-eslint/parser',
+        extraFileExtensions: ['.vue'],
+        ecmaVersion: 'latest',
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+      rules: {
+        'no-fallthrough': 'off',
+        'no-undef': 'off',
+        'vue/attributes-order': 'off',
+        'vue/multi-word-component-names': 'off',
+        'vue/one-component-per-file': 'off',
+        'vue/require-default-prop': 'off',
+        'vue/require-render-return': 'off',
+        '@typescript-eslint/ban-types': 'off',
+        '@typescript-eslint/no-empty-function': 'off',
+        '@typescript-eslint/no-empty-interface': 'off',
+        '@typescript-eslint/no-explicit-any': 'off',
+        '@typescript-eslint/no-non-null-assertion': 'off',
+        '@typescript-eslint/no-non-null-asserted-optional-chain': 'off',
+      },
+    },
+  ],
+})

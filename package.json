@@ -1,0 +1,86 @@
+{
+  "name": "component-library",
+  "version": "1.1.6-beta.6",
+  "packageManager": "pnpm@8.10.5",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "main": "dist/packages/components/index.mjs",
+  "module": "dist/packages/components/index.mjs",
+  "types": "dist/packages/components/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "unplugin-resolver": [
+        "dist/packages/unplugin-resolver/index.d.ts"
+      ],
+      "style.css": [
+        "dist/style.css"
+      ]
+    }
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/packages/components/index.mjs",
+      "require": "./dist/packages/components/index.cjs",
+      "types": "./dist/packages/components/index.d.ts"
+    },
+    "./style.css": "./dist/style.css",
+    "./unplugin-resolver": {
+      "import": "./dist/packages/unplugin-resolver/index.mjs",
+      "require": "./dist/packages/unplugin-resolver/index.cjs",
+      "types": "./dist/packages/unplugin-resolver/index.d.ts"
+    }
+  },
+  "publishConfig": {
+    "registry": "http://58.20.55.220:6512"
+  },
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "pnpm run ts:check && turbo build",
+    "ts:check": "vue-tsc --noEmit",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s --config package.json",
+    "version": "pnpm changelog && git add .",
+    "release": "bumpp --all && pnpm publish",
+    "prepublish": "simple-git-hooks && pnpm build"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged"
+  },
+  "peerDependencies": {
+    "@element-plus/icons-vue": "^2.3.0",
+    "element-plus": "^2.6.0",
+    "vue": "^3.3.0"
+  },
+  "devDependencies": {
+    "@element-plus/icons-vue": "2.3.1",
+    "bumpp": "9.2.0",
+    "component-library-components": "workspace:*",
+    "component-library-eslint-config": "workspace:*",
+    "component-library-hooks": "workspace:*",
+    "component-library-theme-chalk": "workspace:*",
+    "component-library-utils": "workspace:*",
+    "conventional-changelog-cli": "3.0.0",
+    "element-plus": "2.6.1",
+    "eslint": "8.54.0",
+    "less": "4.2.0",
+    "lint-staged": "15.2.0",
+    "lodash-es": "4.17.21",
+    "prettier": "3.1.0",
+    "simple-git-hooks": "2.9.0",
+    "turbo": "1.10.16",
+    "typescript": "5.3.2",
+    "vite": "4.5.0",
+    "vue": "3.3.8"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,vue}": "eslint --fix",
+    "*.{md,json}": "prettier --write"
+  },
+  "options": {
+    "preset": {
+      "name": "conventionalcommits",
+      "commitUrlFormat": "https://hegui.coding.net/p/hnhegui-front/d/hnhegui-heui/git/commit/{{hash}}"
+    }
+  }
+}

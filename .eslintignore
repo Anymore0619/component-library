@@ -1,0 +1,5 @@
+dist
+dist-storybook
+node_modules
+play/storybook-static
+pnpm-lock.yaml

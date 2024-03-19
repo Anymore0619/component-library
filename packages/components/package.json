@@ -1,0 +1,12 @@
+{
+  "name": "component-library-components",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "index.ts",
+  "peerDependencies": {
+    "@element-plus/icons-vue": "^2.3.0",
+    "element-plus": "^2.6.0",
+    "lodash-es": "^4.0.0",
+    "vue": "^3.3.0"
+  }
+}

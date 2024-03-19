@@ -1,0 +1,47 @@
+.pro-tree {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  &__search-input {
+    margin-bottom: 18px;
+  }
+  &__scrollbar {
+    width: 100%;
+    height: auto;
+    min-height: 200px;
+  }
+  &__tree {
+    flex: 1;
+    width: 100%;
+    min-height: 200px;
+    .el-tree__empty-block {
+      min-height: 200px;
+    }
+  }
+  &__tree-node {
+    width: calc(100% - 24px);
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__tree-node-main {
+    flex: 1;
+    line-height: var(--el-tree-node-content-height);
+  }
+  &__tree-node-action {
+    width: 74px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__highlight-search-text {
+    & span:nth-child(2) {
+      color: var(--el-color-primary);
+    }
+  }
+  &__load-more-button {
+    margin: 18px auto 0;
+  }
+}
