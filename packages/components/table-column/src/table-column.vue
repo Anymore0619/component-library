@@ -153,8 +153,10 @@
           <template v-if="$defaultType === 'action'">
             <template
               v-if="
-                $defaultActions.length <= $maxActionNumber ||
-                $displayedActions(scope.row).length <= $maxActionNumber
+                $defaultActions.length <= $defaultMaxActionNumber ||
+                $displayedActions(scope.row).length <=
+                  $defaultMaxActionNumber ||
+                $defaultMaxActionNumber === 0
               "
             >
               <template
@@ -283,7 +285,6 @@ const $tableColumnFilteredSlotNames = getFilteredSlotNames(
 /* 实例 */
 const $tableColumnRef = ref<TableColumnInstance>()
 /* 辅助参数 */
-const $maxActionNumber = 3
 const $displayedActions = computed(() => (row: Record<string, any>) => {
   return $defaultActions.value.filter(
     action => !action.hidden || !action.hidden?.(row)
@@ -353,6 +354,12 @@ const $defaultLabel = computed(() => {
     return '操作'
   }
   return ''
+})
+const $defaultMaxActionNumber = computed(() => {
+  if (!isUndefined($props.maxActionNumber)) {
+    return $props.maxActionNumber
+  }
+  return 3
 })
 const $defaultNoValueText = computed(() => {
   if (!isUndefined($props.noValueText)) {

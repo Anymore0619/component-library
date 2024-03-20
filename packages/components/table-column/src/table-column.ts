@@ -39,6 +39,7 @@ type TableColumnExtendedProps = {
   displayed?: boolean
   headerSlotName?: string
   hidden?: boolean
+  maxActionNumber?: number
   noValueText?: string
   remoteSortable?: boolean
   remoteSortIndex?: number
